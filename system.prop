@@ -1,9 +1,4 @@
-ro.hardware=h1
-ro.chipname=MSM8996
-ro.arch=msm8996
-ro.boot.bootdevice=624000.ufshc
-ro.lcd_min_brightness=0
-ro.lcd_brightness=162
 ro.sf.lcd_density=640
+ro.lge.lcd_default_brightness=149
 ro.hardware.keystore=msm8996
 persist.sys.usb.config=mtp,adb
