@@ -19,5 +19,5 @@ lunch omni_h850-eng
 make -j5 recoveryimage
 ```
 
-Kernel sources are available at: https://github.com/jcadduono/nethunter_kernel_g5/tree/twrp-6.0
+Kernel sources are available at: https://github.com/jcadduono/android_kernel_lge_msm8996/tree/twrp-6.0
 

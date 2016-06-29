@@ -715,6 +715,7 @@
 /sys/devices/platform/msm_hsusb/gadget/lun0/nofua    u:object_r:sysfs_usb_nofua:s0
 /sys/devices/platform/msm_hsusb/gadget/lun1/nofua    u:object_r:sysfs_usb_nofua:s0
 /sys/devices/platform/msm_hsusb/gadget/wakeup    u:object_r:sysfs_usb_wakeup:s0
+/sys/devices/platform/msm_hsusb_host/power/wakeup  u:object_r:sysfs_usb_wakeup:s0
 /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun0      u:object_r:sysfs_usb_nofua:s0
 /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun0/nofua      u:object_r:sysfs_usb_nofua:s0
 /sys/devices/platform/pre_selfd_ctrl.0(/.*)?     u:object_r:sysfs_pre_selfd_ctrl:s0
@@ -727,6 +728,10 @@
 /sys/devices/soc.0/1c00000.qcom,kgsl-3d0/coresight-gfx/enable  u:object_r:sysfs_enable:s0
 /sys/devices/soc.0/78b5000.i2c/i2c-1/1-006b/power_supply/battery/charging_enabled  u:object_r:sysfs_charging_enabled:s0
 /sys/devices/soc.0/78b5000.i2c/i2c-1/1-006b/power_supply/battery/safety_timer  u:object_r:sysfs_safety_timer:s0
+/sys/devices/soc.0/78b5000.spi/spi_master/spi1/spi1.1/clk_enable     u:object_r:sysfs_fpcd_clk_enable:s0
+/sys/devices/soc.0/78b5000.spi/spi_master/spi1/spi1.1/irq            u:object_r:sysfs_fpcd_irq:s0
+/sys/devices/soc.0/78b5000.spi/spi_master/spi1/spi1.1/spi_prepare    u:object_r:sysfs_fpcd_spi_prepare:s0
+/sys/devices/soc.0/78b5000.spi/spi_master/spi1/spi1.1/wakeup_enable    u:object_r:sysfs_fpcd_wakeup:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/accel_enable  u:object_r:sysfs_accel_enable:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/buffer/enable    u:object_r:sysfs_device_sensor:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/compass_enable  u:object_r:sysfs_compass_enable:s0
@@ -743,6 +748,18 @@
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/result_calibration    u:object_r:sysfs_device_sensor:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/run_calibration    u:object_r:sysfs_device_sensor:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-0/0-0068/iio:device0/scan_elements/in_timestamp_en             u:object_r:sysfs_in_timestamp_en:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/B/brightness    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/B/device/led_blink    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/B/device/led_current_index    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/B/device/led_pattern    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/G/brightness    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/G/device/led_blink    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/G/device/led_current_index    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/G/device/led_pattern    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/R/brightness    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/R/device/led_blink    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/R/device/led_current_index    u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/78b6000.i2c/i2c-2/2-0030/leds/R/device/led_pattern    u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc.0/78b6000.i2c/i2c-2/2-005a/onoff u:object_r:sysfs_onoff:s0
 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0032/led_blink u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0032/led_pattern u:object_r:sysfs_lg_leds:s0
@@ -751,6 +768,7 @@
 /sys/devices/soc.0/78b8000.i2c/i2c-4/4-0032/leds/R/brightness u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc.0/78ba000.i2c/i2c-6/6-005a/onoff    u:object_r:sysfs_capsensor:s0
 /sys/devices/soc.0/78db000.usb/power/wakeup  u:object_r:sysfs_usb_wakeup:s0
+/sys/devices/soc.0/7af5000.i2c/i2c-5/5-005a/onoff  u:object_r:sysfs_onoff:s0
 /sys/devices/soc.0/7af6000.spi/spi_master/spi6/spi6.0/ir_data   u:object_r:sysfs_ir_data:s0
 /sys/devices/soc.0/bt_bluetooth_pm.*/rfkill/rfkill0/state -- u:object_r:sysfs_bluetooth_writable:s0
 /sys/devices/soc.0/charger_controller.83/power_supply/charger_controller/battery_charging_enabled -- u:object_r:sysfs_charging_enabled:s0
@@ -761,8 +779,11 @@
 /sys/devices/soc.0/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary\..*/leds/lcd-backlight/brightness        u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc.0/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary\..*/leds/lcd-backlight/thermald_status   u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc.0/fd900000.qcom,mdss_mdp/vfps -- u:object_r:sysfs_vfps:s0
+/sys/devices/soc.0/gpio_keys.99/power/wakeup  u:object_r:sysfs_usb_wakeup:s0
 /sys/devices/soc.0/leds-.*/leds/.*(./*)?  u:object_r:sysfs_lg_leds:s0
+/sys/devices/soc.0/msm8x16_wcd_codec-f5e14200/power/wakeup  u:object_r:sysfs_usb_wakeup:s0
 /sys/devices/soc.0/qcom,mdss_dsi.3/1a98000.qcom,mdss_dsi_ctrl0/reader_mode  u:object_r:sysfs_lg_reader_mode:s0
+/sys/devices/soc.0/qpnp-.*/power/wakeup  u:object_r:sysfs_usb_wakeup:s0
 /sys/devices/soc.0/qpnp-.*/power_supply/battery/battery_charging_enabled -- u:object_r:sysfs_charging_enabled:s0
 /sys/devices/soc.0/qpnp-.*/power_supply/battery/charging_enabled -- u:object_r:sysfs_charging_enabled:s0
 /sys/devices/soc.0/qpnp-.*/power_supply/battery/safety_timer -- u:object_r:sysfs_charging_enabled:s0
@@ -776,6 +797,7 @@
 /sys/devices/soc/75b7000.spi/spi_master/spi8/spi8.1/irq            u:object_r:sysfs_fpcd_irq:s0
 /sys/devices/soc/75b7000.spi/spi_master/spi8/spi8.1/spi_prepare    u:object_r:sysfs_fpcd_spi_prepare:s0
 /sys/devices/soc/75b7000.spi/spi_master/spi8/spi8.1/wakeup_enable  u:object_r:sysfs_fpcd_wakeup:s0
+/sys/devices/soc/78db000.usb/msm_hsusb/gadget/lun0/nofua           u:object_r:sysfs_usb_nofua:s0
 /sys/devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight-ex/brightness  u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc/900000.qcom,mdss_mdp/900000.qcom,mdss_mdp:qcom,mdss_fb_primary/leds/lcd-backlight/brightness     u:object_r:sysfs_lg_leds:s0
 /sys/devices/soc/900000.qcom,mdss_mdp/vfps               u:object_r:sysfs_vfps:s0
@@ -825,13 +847,19 @@
 /sys/kernel/mm/ksm/run             u:object_r:sysfs_kernel_mm_ksm:s0
 /sys/kernel/mm/ksm/sleep_millisecs u:object_r:sysfs_kernel_mm_ksm:s0
 /sys/module/bcmdhd/parameters/firmware_path u:object_r:sysfs_bcmdhd_firmware_path:s0
+/sys/module/g_android/parameters/rndis_dl_max_pkt_per_xfer  u:object_r:sysfs_usb_rndis:s0
+/sys/module/g_android/parameters/rndis_dl_max_xfer_size     u:object_r:sysfs_usb_rndis:s0
+/sys/module/g_android/parameters/rndis_ul_max_pkt_per_xfer  u:object_r:sysfs_usb_rndis:s0
 /sys/module/lge_handle_panic/parameters/gen_modem_panic     u:object_r:sysfs_gen_modem_panic:s0
-/sys/module/lpm_levels/system/a.*/cpu.*/pc/suspend_enabled u:object_r:sysfs_ipm_levels:s0
-/sys/module/lpm_levels/system/a53/cpu.*/pc/idle_enabled    u:object_r:sysfs_ipm_levels:s0
-/sys/module/lpm_levels/system/cpu.*/pc/idle_enabled        u:object_r:sysfs_ipm_levels:s0
-/sys/module/lpm_levels/system/cpu.*/pc/suspend_enabled     u:object_r:sysfs_ipm_levels:s0
-/sys/module/msm_pm/modes/cpu.*/power_collapse/idle_enabled		u:object_r:sysfs_lg_leds:s0
-/sys/module/msm_pm/modes/cpu.*/power_collapse/suspend_enabled		u:object_r:sysfs_lg_leds:s0
+/sys/module/lpm_levels/enable_low_power/l2                 u:object_r:sysfs_lpm_levels:s0
+/sys/module/lpm_levels/system/a.*/cpu.*/pc/suspend_enabled u:object_r:sysfs_lpm_levels:s0
+/sys/module/lpm_levels/system/a53/cpu.*/pc/idle_enabled    u:object_r:sysfs_lpm_levels:s0
+/sys/module/lpm_levels/system/cpu.*/pc/idle_enabled        u:object_r:sysfs_lpm_levels:s0
+/sys/module/lpm_levels/system/cpu.*/pc/suspend_enabled     u:object_r:sysfs_lpm_levels:s0
+/sys/module/msm_pm/modes/cpu.*/power_collapse/idle_enabled			u:object_r:sysfs_lg_leds:s0
+/sys/module/msm_pm/modes/cpu.*/power_collapse/suspend_enabled			u:object_r:sysfs_lg_leds:s0
+/sys/module/msm_pm/modes/cpu.*/standalone_power_collapse/idle_enabled		u:object_r:sysfs_lg_leds:s0
+/sys/module/msm_pm/modes/cpu.*/standalone_power_collapse/suspend_enabled	u:object_r:sysfs_lg_leds:s0
 /sys/module/switching_charging_current/parameters/cnt_state    u:object_r:sysfs_cnt_state:s0
 /sys/module/wlan/parameters/con_mode        u:object_r:sysfs_con_mode:s0
 /sys/module/wlan/parameters/fwpath        u:object_r:sysfs_wifimini_path:s0
