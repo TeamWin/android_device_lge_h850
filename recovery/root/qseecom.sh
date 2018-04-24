@@ -3,13 +3,13 @@ while [ "$(getprop ro.crypto.fs_crypto_blkdev)" != "/dev/block/dm-0" ]; do
 if [ ! -d /system/etc ]; then #mount system if not already mounted
       mount /system -o ro
 fi
-        if [ ! -e /dev/block/bootdevice/by-name/vendor ]; then
+        if [  `blkid /dev/block/bootdevice/by-name/vendor | grep -c ext4` -lt 1  ]; then
 		if [ ! -L /vendor ]; then
         		ln -s /system/vendor /vendor #if no vendor partition symlink it
 		fi
         else
 		if [ ! -d /vendor ]; then # create a /vendor directory to mount onto if not there
-			if [ -e /vendor ]; then #if it exists and isnt a directory get it out of the way
+			if [ -L /vendor ]; then #if it exists and isnt a directory get it out of the way
 				rm /vendor
 			fi
 			mkdir /vendor
