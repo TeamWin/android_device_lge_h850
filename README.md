@@ -16,7 +16,7 @@ To build:
 ```sh
 . build/envsetup.sh
 lunch omni_h850-eng
-make -j5 recoveryimage
+mka recoveryimage
 ```
 
 Kernel sources are available at: https://github.com/LineageOS/android_kernel_lge_msm8996

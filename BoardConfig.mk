@@ -37,7 +37,7 @@ TARGET_KERNEL_DEVICE_DEFCONFIG := device_lge_h850
 TARGET_PREBUILT_KERNEL := device/lge/h850/kernel
 
 # Boot image
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.hardware=h1 androidboot.bootdevice=624000.ufshc androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.hardware=h1 androidboot.bootdevice=624000.ufshc androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02200000 --tags_offset 0x00000100
@@ -67,21 +67,22 @@ TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 128
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INCLUDE_NTFS_3G := true
-
-# No love for the wicked (device ships with M)
 TW_EXCLUDE_SUPERSU := true
-
-# Encryption support
-TW_INCLUDE_CRYPTO := true
-#TARGET_HW_DISK_ENCRYPTION := true
-#TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TW_CRYPTO_USE_SYSTEM_VOLD := qseecomd
-
-# Asian region languages
 TW_EXTRA_LANGUAGES := true
-
-# Debug flags
-TWRP_INCLUDE_LOGCAT := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
 
 # Ignore LG's bootloader wipe commands
 TW_IGNORE_MISC_WIPE_DATA := true
+
+# Encryption support
+#TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_USE_SYSTEM_VOLD := qseecomd
+
+# Debug flags
+#TWRP_INCLUDE_LOGCAT := true
+#TARGET_USES_LOGD := true
+#TW_CRYPTO_SYSTEM_VOLD_DEBUG := true
+#TARGET_RECOVERY_DEVICE_MODULES += strace
+#TW_RECOVERY_ADDITIONAL_RELINK_FILES += $(TARGET_OUT_OPTIONAL_EXECUTABLES)/strace
