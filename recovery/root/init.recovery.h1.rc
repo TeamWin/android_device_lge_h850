@@ -28,13 +28,6 @@ service qseecom /sbin/ash /qseecom.sh
     group root
     seclabel u:r:recovery:s0
 
-service vendor /sbin/ash /vendor.sh
-    oneshot
-    disabled
-    user root
-    group root
-    seclabel u:r:recovery:s0
-
 service fixyear /sbin/sh /fixyear.sh
     oneshot
     disabled
