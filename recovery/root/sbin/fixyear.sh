@@ -6,11 +6,11 @@ setdate() {
 }
 
 retry=0
-while [ "$retry" -le 120 ]; do
+while [ "$retry" -le 60 ]; do
     if [ -d /data/data ]; then
         break
-    elif [ "$retry" -eq 120 ]; then
-        exit
+    elif [ "$retry" -eq 60 ]; then
+        exit 1
     fi
     retry=`expr "$retry" + 1`
     sleep 1
@@ -34,7 +34,7 @@ done
 
 curyear=`date +%Y`
 if [ "$curyear" -ge 2018 ]; then
-    exit
+    exit 0
 fi
 
 year1=`date -r /data/data +%Y`
