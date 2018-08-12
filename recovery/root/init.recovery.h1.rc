@@ -1,3 +1,11 @@
+on boot
+    # save battery by switching to interactive once booted
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+
+    chmod 0750 /vendor.sh
+    start vendor
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -7,8 +15,6 @@ on fs
     chown system drmrpc /dev/qseecom
     chmod 0664 /dev/ion
     chown system system /dev/ion
-    chmod 0750 /vendor.sh
-    start vendor
 
 on property:ro.crypto.state=encrypted
     chmod 0750 /qseecom.sh
@@ -17,10 +23,12 @@ on property:ro.crypto.state=encrypted
 on property:init.svc.recovery=running
     start fixyear
 
-on boot
-    # save battery by switching to interactive once booted
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor interactive
+service vendor /sbin/ash /vendor.sh
+    oneshot
+    disabled
+    user root
+    group root
+    seclabel u:r:recovery:s0
 
 service qseecom /sbin/ash /qseecom.sh
     disabled
