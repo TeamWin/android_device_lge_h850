@@ -16,7 +16,6 @@ on fs
     chown system system /dev/ion
 
 on property:ro.crypto.state=encrypted
-    chmod 0750 /sbin/qseecom.sh
     start qseecom
 
 on property:init.svc.recovery=running
@@ -30,6 +29,7 @@ service vendor /sbin/sh /sbin/vendor.sh
     seclabel u:r:recovery:s0
 
 service qseecom /sbin/sh /sbin/qseecom.sh
+    oneshot
     disabled
     user root
     group root

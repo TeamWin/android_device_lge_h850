@@ -1,6 +1,6 @@
 #!/sbin/sh
 
-while [ -z "`getprop ro.crypto.fs_crypto_blkdev`" ]; do # if not yet decrypted
+while [ -z $cryptodone ]; do
     if [ ! -d /system/etc ]; then # mount system if not already mounted
         mount -o ro /system
     fi
@@ -32,9 +32,13 @@ while [ -z "`getprop ro.crypto.fs_crypto_blkdev`" ]; do # if not yet decrypted
             LD_LIBRARY_PATH='/vendor/lib64:/system/lib64:/vendor/lib:/system/lib' PATH='/vendor/bin:/system/bin' /vendor/bin/qseecomd &
         fi
     fi
+
+    case "`getprop ro.crypto.fs_crypto_blkdev`" in
+        /dev/block/dm-*) cryptodone=1 ;;
+    esac
 done
 
-if [ -n "`getprop ro.crypto.fs_crypto_blkdev`" ]; then
+if [ -n $cryptodone ]; then
     killall qseecomd
 fi
 
