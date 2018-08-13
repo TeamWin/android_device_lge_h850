@@ -2,7 +2,7 @@
 
 setdate() {
     date `date +%m%d%H%M`${year}.`date +%S`
-    echo "I:Corrected year to $year from $curyear" >> /tmp/recovery.log
+    echo "I:Corrected year from $curyear to $year" >> /tmp/recovery.log
 }
 
 retry=0
@@ -17,19 +17,16 @@ while [ "$retry" -le 60 ]; do
 done
 
 ## Delay method
-#cryptostate=`getprop ro.crypto.state`
-#cryptodone=`getprop ro.crypto.fs_crypto_blkdev`
-#if [ -z "$cryptostate" ]; then
+#if [ -z "`getprop ro.crypto.state`" ]; then
 #    sleep 5
-#elif [ -n "$cryptodone" ]; then
+#elif [ -n "`getprop ro.crypto.fs_crypto_blkdev`" ]; then
 #    sleep 7
 #else
 #    sleep 10
 #fi
 
-until [ -n "$fixedup" ]; do
+until [ -n "`grep -m 1 "Fixup_Time" /tmp/recovery.log`" ]; do
     sleep 2
-    fixedup=`grep -m 1 "Fixup_Time" /tmp/recovery.log`
 done
 
 curyear=`date +%Y`
