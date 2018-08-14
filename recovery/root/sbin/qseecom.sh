@@ -11,7 +11,9 @@ if [ -n "`blkid /dev/block/bootdevice/by-name/vendor | grep ext4`" ]; then
     if [ ! -d /vendor ]; then
         mkdir /vendor
     fi
-    mount -t ext4 -o ro /dev/block/bootdevice/by-name/vendor /vendor
+    if [ -z "`mount | grep -w /vendor`" ]; then
+        mount -t ext4 -o ro /dev/block/bootdevice/by-name/vendor /vendor
+    fi
 fi
 
 if [ -z "`ls -A /vendor`" ]; then
@@ -37,7 +39,11 @@ while [ "$retry" -le 60 ]; do
     case `getprop ro.crypto.fs_crypto_blkdev` in
         /dev/block/dm-*) cryptodone=1 ;;
     esac
-    if [ -n "$cryptodone" ] || [ "$retry" -eq 60 ]; then
+    if [ -n "$cryptodone" ]; then
+        echo "I:Decryption successful, took $retry seconds" >> /tmp/recovery.log
+        break
+    elif [ "$retry" -eq 60 ]; then
+        echo "E:Decryption failed, timed out" >> /tmp/recovery.log
         break
     fi
     retry=`expr "$retry" + 1`
