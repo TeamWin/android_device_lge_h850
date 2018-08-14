@@ -1,7 +1,7 @@
 #!/sbin/sh
 
 if [ -n "`blkid /dev/block/bootdevice/by-name/vendor | grep ext4`" ]; then
-    if [ -L /vendor ]; then # if a symlink, remove it
+    if [ -L /vendor ]; then
         rm /vendor
     fi
     sed -i '5i\/vendor		ext4	/dev/block/bootdevice/by-name/vendor	flags=backup=1;wipeingui' /etc/twrp.fstab
