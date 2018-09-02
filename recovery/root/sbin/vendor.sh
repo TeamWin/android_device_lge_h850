@@ -1,6 +1,6 @@
 #!/sbin/sh
 
-if [ -n "`blkid /dev/block/bootdevice/by-name/vendor | grep ext4`" ]; then
+if [ "`blkid /dev/block/bootdevice/by-name/vendor`" ]; then
     if [ -L /vendor ]; then
         rm /vendor
     fi

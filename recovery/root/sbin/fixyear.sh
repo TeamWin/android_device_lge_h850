@@ -5,25 +5,14 @@ setdate() {
     echo "I:Corrected year from $curyear to $year" >> /tmp/recovery.log
 }
 
-retry=0
-while [ "$retry" -le 60 ]; do
+for retry in `seq 0 60`; do
     if [ -d /data/data ]; then
         break
     elif [ "$retry" -eq 60 ]; then
         exit 1
     fi
-    retry=`expr "$retry" + 1`
     sleep 1
 done
-
-## Delay method
-#if [ -z "`getprop ro.crypto.state`" ]; then
-#    sleep 5
-#elif [ -n "`getprop ro.crypto.fs_crypto_blkdev`" ]; then
-#    sleep 7
-#else
-#    sleep 10
-#fi
 
 until [ -n "`grep -m 1 "Fixup_Time" /tmp/recovery.log`" ]; do
     sleep 2
